@@ -7,7 +7,7 @@ class TestBfsCommunityGraph(unittest.TestCase):
   def setUp(self) -> None:
     self.graph = BfsCommunityGraph()
 
-def test_load_graph(self):
+  def test_load_graph(self):
     # Tworzenie prawidłowego grafu (węzły jako stringi)
     G = nx.Graph()
     G.add_nodes_from(['1', '2', '3', '4'])
