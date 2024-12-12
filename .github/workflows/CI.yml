@@ -54,4 +54,10 @@ jobs:
         VALIDATE_PYTHON_BLACK: true
         DEFAULT_BRANCH: main
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PYTHON_PYLINT_CONFIG_FILE: .python-lint
+        PYTHON_PYLINT_CONFIG_FILE: .pylintrc
+        BLACK_ARGS: "--quiet"
+
+    - name: Format with Black
+      run: |
+        pip install black
+        black .
