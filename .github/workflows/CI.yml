@@ -17,9 +17,14 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install networkx coverage unittest2 matplotlib
+        pip install networkx coverage unittest2 matplotlib black
         pip install -r requirements.txt
     
+    - name: Format with Black
+      run: |
+        black src/
+        black tests/
+        
     - name: Create Pylint config
       run: |
         echo "[MASTER]
@@ -56,9 +61,3 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PYTHON_PYLINT_CONFIG_FILE: .python-lint
         BLACK_ARGS: "--line-length=100"
-
-    - name: Format with Black
-      run: |
-        pip install black
-        black .
-
