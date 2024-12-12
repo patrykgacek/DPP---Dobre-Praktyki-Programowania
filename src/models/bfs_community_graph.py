@@ -9,8 +9,7 @@ class BfsCommunityGraph:
         self.spread_order: list = []
         self.start_node: str = None  # Changed to accept string nodes (names)
 
-
-  def __str__(self) -> str:
+    def __str__(self) -> str:
         """
         Returns a string representation of the object, including graph details, levels, spread order, and the start node.
         """
