@@ -22,7 +22,7 @@ class BfsCommunityGraph:
         return string_representation
   
 
-  def draw(self):
+    def draw(self):
         """
         Draws a visualization of the graph, with directed edges indicating the spread of information from the start node.
         """
@@ -43,7 +43,7 @@ class BfsCommunityGraph:
         plt.show()
   
 
-  def set_start_node(self, node: str) -> bool:
+    def set_start_node(self, node: str) -> bool:
         """
         Sets the start node for the BFS algorithm and initiates the BFS traversal.
         
@@ -60,45 +60,45 @@ class BfsCommunityGraph:
             return False
 
 
-  def bfs(self):
-    """
-    BFS (Breadth First Search) algorithm for the graph.
-    """
-    queue = deque([self.start_node])
-    visited_nodes = set()
-    self.levels[self.start_node] = 0
-    self.spread_order.append(self.start_node)
+    def bfs(self):
+        """
+        BFS (Breadth First Search) algorithm for the graph.
+        """
+        queue = deque([self.start_node])
+        visited_nodes = set()
+        self.levels[self.start_node] = 0
+        self.spread_order.append(self.start_node)
 
-    while queue:
-      node = queue.popleft()
-      visited_nodes.add(node)
+        while queue:
+            node = queue.popleft()
+            visited_nodes.add(node)
 
-      for neighbor in self.graph.neighbors(node):
-        if neighbor not in visited_nodes:
-          queue.append(neighbor)
-          visited_nodes.add(neighbor)
-          self.levels[neighbor] = self.levels[node] + 1
-          self.spread_order.append(neighbor)
+        for neighbor in self.graph.neighbors(node):
+            if neighbor not in visited_nodes:
+                queue.append(neighbor)
+                visited_nodes.add(neighbor)
+                self.levels[neighbor] = self.levels[node] + 1
+                self.spread_order.append(neighbor)
   
 
-  def load_graph(self, graph: nx.Graph) -> bool:
-    """
-    Loads community graph from the given graph.
+    def load_graph(self, graph: nx.Graph) -> bool:
+        """
+        Loads community graph from the given graph.
 
-    Parameters:
-    graph: nx.Graph: The graph to be loaded.
+        Parameters:
+        graph: nx.Graph: The graph to be loaded.
 
-    Returns: bool: True if the graph is valid and loaded, False otherwise.
-    """
-    if self.is_valid(graph):
-      self.graph = graph
-      return True
-    else:
-      return False
+        Returns: bool: True if the graph is valid and loaded, False otherwise.
+        """
+        if self.is_valid(graph):
+        self.graph = graph
+        return True
+        else:
+        return False
 
 
-  def is_valid(self, graph: nx.Graph) -> bool:
-    """
+    def is_valid(self, graph: nx.Graph) -> bool:
+        """
         Checks if the given graph is valid for the BFS algorithm. Ensures all nodes are strings.
         
         Parameters:
@@ -107,10 +107,10 @@ class BfsCommunityGraph:
         Returns: bool: True if the graph is valid, False otherwise.
         """
         # Ensure all nodes are strings
-    return all(isinstance(node, str) for node in graph.nodes())
+        return all(isinstance(node, str) for node in graph.nodes())
 
   
-  def make_graph_from(self, edges: list) -> bool:
+    def make_graph_from(self, edges: list) -> bool:
         """
         Creates a community graph from the given list of edges.
         
@@ -134,7 +134,7 @@ class BfsCommunityGraph:
         return True
 
 
-  def random_community(self, num_nodes: int, edge_prob: float, seed: int = None) -> bool:
+    def random_community(self, num_nodes: int, edge_prob: float, seed: int = None) -> bool:
         """
         Generates a random community graph with string nodes.
         
