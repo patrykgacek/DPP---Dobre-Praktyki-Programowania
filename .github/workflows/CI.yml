@@ -55,9 +55,10 @@ jobs:
         DEFAULT_BRANCH: main
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PYTHON_PYLINT_CONFIG_FILE: .python-lint
-        BLACK_ARGS: "--quiet"
+        BLACK_ARGS: "--line-length=100"
 
     - name: Format with Black
       run: |
         pip install black
         black .
+
