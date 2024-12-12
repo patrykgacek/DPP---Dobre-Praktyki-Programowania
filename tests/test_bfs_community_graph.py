@@ -7,18 +7,17 @@ class TestBfsCommunityGraph(unittest.TestCase):
   def setUp(self) -> None:
     self.graph = BfsCommunityGraph()
 
-  def test_load_graph(self):
-    num_nodes = 10
-    edge_prob = 0.2
-    valid_g_seed = 9
-    invalid_g_seed = 7
-
-    # Should return True if the graph is valid
-    G = nx.erdos_renyi_graph(num_nodes, edge_prob, valid_g_seed)
+def test_load_graph(self):
+    # Tworzenie prawidłowego grafu (węzły jako stringi)
+    G = nx.Graph()
+    G.add_nodes_from(['1', '2', '3', '4'])
+    G.add_edges_from([('1', '2'), ('2', '3'), ('3', '4')])
     self.assertTrue(self.graph.load_graph(G))
 
-    # Should return False if the graph is not valid
-    G = nx.erdos_renyi_graph(num_nodes, edge_prob, invalid_g_seed)
+    # Tworzenie nieprawidłowego grafu (węzły jako liczby)
+    G = nx.Graph()
+    G.add_nodes_from([1, 2, 3, 4])
+    G.add_edges_from([(1, 2), (2, 3), (3, 4)])
     self.assertFalse(self.graph.load_graph(G))
 
   def test_make_graph_from_edges(self):
