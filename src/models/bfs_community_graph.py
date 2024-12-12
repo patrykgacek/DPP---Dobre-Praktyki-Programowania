@@ -91,10 +91,10 @@ class BfsCommunityGraph:
         Returns: bool: True if the graph is valid and loaded, False otherwise.
         """
         if self.is_valid(graph):
-        self.graph = graph
-        return True
+            self.graph = graph
+            return True
         else:
-        return False
+            return False
 
 
     def is_valid(self, graph: nx.Graph) -> bool:
