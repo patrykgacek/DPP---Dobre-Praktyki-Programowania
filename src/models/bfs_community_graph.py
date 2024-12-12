@@ -3,11 +3,11 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 class BfsCommunityGraph:
-  def __init__(self, graph: nx.Graph = None):
-    self.graph: nx.Graph = graph
-    self.levels: dict = {}
-    self.spread_order: list = []
-    self.start_node: str = None  # Changed to accept string nodes (names)
+    def __init__(self, graph: nx.Graph = None):
+        self.graph: nx.Graph = graph
+        self.levels: dict = {}
+        self.spread_order: list = []
+        self.start_node: str = None  # Changed to accept string nodes (names)
 
 
   def __str__(self) -> str:
