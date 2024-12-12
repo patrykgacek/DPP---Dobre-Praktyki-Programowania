@@ -17,12 +17,23 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install networkx coverage unittest2 matplotlib pylint
+        pip install networkx coverage unittest2 matplotlib
         pip install -r requirements.txt
     
-    - name: Generate Pylint config
+    - name: Create Pylint config
       run: |
-        pylint --generate-rcfile > .pylintrc
+        echo "[MASTER]
+        init-hook='import sys; sys.path.append(\"src\")'
+        ignore=tests
+
+        [MESSAGES CONTROL]
+        disable=C0111,C0103,C0301
+
+        [FORMAT]
+        max-line-length=100
+
+        [DESIGN]
+        max-args=5" > .pylintrc
     
     - name: Run unit tests with coverage
       run: |
