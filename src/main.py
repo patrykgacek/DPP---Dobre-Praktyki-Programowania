@@ -6,13 +6,13 @@ community_graph = BfsCommunityGraph()
 
 # 2. Stworzenie grafu z listy krawędzi
 edges = [
-         ("Patryk", "Kajetan"),
-         ("Kajetan", "Artur"),
-         ("Patryk", "Julia"), 
-         ("Julia", "Anna"),
-         ("Anna", "Zosia"),
-         ("Zosia", "Kajetan"),
-]
+    ("Patryk", "Kajetan"),
+    ("Kajetan", "Artur"),
+    ("Patryk", "Julia"),
+    ("Julia", "Anna"),
+    ("Anna", "Zosia"),
+    ("Zosia", "Kajetan"),
+ ]
 community_graph.make_graph_from(edges)
 
 # 3. Ustawienie węzła startowego (np. "Patryk") i uruchomienie algorytmu BFS
