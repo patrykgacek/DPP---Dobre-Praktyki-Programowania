@@ -1,41 +1,61 @@
-name: CD
+name: Python CD Pipeline
 
 on:
   push:
     tags:
-      - 'v*'
+      - 'v*.*.*'
 
 jobs:
-  release:
+  build-and-publish:
     runs-on: ubuntu-latest
+    
     steps:
     - uses: actions/checkout@v3
+    
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v3
       with:
         python-version: '3.x'
+    
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install build
+        pip install build twine setuptools wheel
+        pip install -r requirements.txt
+    
+    - name: Create package files
+      run: |
+        echo "[build-system]
+        requires = ['setuptools>=42']
+        build-backend = 'setuptools.build_meta'
+        
+        [project]
+        name = 'bfs-community-graph'
+        version = '${GITHUB_REF#refs/tags/v}'
+        description = 'BFS Community Graph Analysis Tool'
+        readme = 'README.md'
+        requires-python = '>=3.8'
+        dependencies = [
+            'networkx',
+            'matplotlib'
+        ]" > pyproject.toml
+    
     - name: Build package
       run: python -m build
+    
     - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: softprops/action-gh-release@v1
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
+        files: dist/*
+        body: "Release ${{ github.ref_name }}"
         draft: false
         prerelease: false
-    - name: Upload Release Asset
-      uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./dist/*
-        asset_name: my_package-${{ github.ref_name }}.tar.gz
-        asset_content_type: application/gzip
+    
+    - name: Publish to PyPI
+      env:
+        TWINE_USERNAME: __token__
+        TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+      run: |
+        python -m twine upload dist/*
