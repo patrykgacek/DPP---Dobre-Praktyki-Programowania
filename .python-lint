@@ -4,6 +4,7 @@ ignore=tests
 
 [MESSAGES CONTROL]
 disable=C0111,C0103,C0301
+overgeneral-exceptions=builtins.Exception
 
 [FORMAT]
 max-line-length=100
