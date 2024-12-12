@@ -3,7 +3,6 @@ import networkx as nx
 from src.models.bfs_community_graph import BfsCommunityGraph
 
 class TestBfsCommunityGraph(unittest.TestCase):
-
   def setUp(self) -> None:
     self.graph = BfsCommunityGraph()
 
