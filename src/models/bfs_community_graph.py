@@ -234,7 +234,7 @@ class BfsCommunityGraph:
             node_size=node_size,
             arrowsize=arrow_size,
         )
-        plt.title(SPREAD_TITLE)
+        plt.title(f'{SPREAD_TITLE} from {self.start_node}')
         plt.show()
 
     def draw_compare(
@@ -297,6 +297,6 @@ class BfsCommunityGraph:
             node_size=node_size,
             arrowsize=spread_arrow_size,
         )
-        axes[1].set_title(SPREAD_TITLE)
+        axes[1].set_title(f'{SPREAD_TITLE} from {self.start_node}')
 
         plt.show()
