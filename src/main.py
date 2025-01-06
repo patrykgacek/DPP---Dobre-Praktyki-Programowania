@@ -1,7 +1,18 @@
 from models.bfs_community_graph import BfsCommunityGraph
 
 
-people = ["Patryk", "Kasia", "Kajetan", "Ania", "Artur", "Karolina", "Tomek", "Klaudia", "Krzysiek", "Asia"]
+people = [
+    "Patryk",
+    "Kasia",
+    "Kajetan",
+    "Ania",
+    "Artur",
+    "Karolina",
+    "Tomek",
+    "Klaudia",
+    "Krzysiek",
+    "Asia",
+]
 
 connections = [
     ("Patryk", "Kasia"),
@@ -18,7 +29,7 @@ connections = [
     ("Artur", "Tomek"),
     ("Karolina", "Klaudia"),
     ("Klaudia", "Krzysiek"),
-    ("Krzysiek", "Asia")
+    ("Krzysiek", "Asia"),
 ]
 
 spread_graph = BfsCommunityGraph(debug=True)
