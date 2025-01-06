@@ -25,23 +25,23 @@ class BfsCommunityGraph:
         self.bfs_order: List[str] = []  # Order of visited nodes
         self.bfs_debug: bool = debug  # Debug flag for BFS algorithm
 
-    
     def __str__(self) -> str:
         """
         Return the string representation of the graph.
 
         :return: String representation of the graph
         """
-        gstr = (f"Graph Nodes: {self.graph.nodes() if self.graph else '-'}\n"
-                f"Graph Edges: {self.graph.edges() if self.graph else '-'}\n"
-                f"Deep: {self.bfs_deep}\n"
-                f"Spread order: {self.bfs_order}\n"
-                f"Start node: {self.start_node}\n"
-                f"Is Connected: {nx.is_connected(self.graph) if self.graph else '-'}\n"
-                f"Result graph nodes: {self.spread_graph.nodes() if self.spread_graph else '-'}\n"
-                f"Result graph edges: {self.spread_graph.edges() if self.spread_graph else '-'}\n")
+        gstr = (
+            f"Graph Nodes: {self.graph.nodes() if self.graph else '-'}\n"
+            f"Graph Edges: {self.graph.edges() if self.graph else '-'}\n"
+            f"Deep: {self.bfs_deep}\n"
+            f"Spread order: {self.bfs_order}\n"
+            f"Start node: {self.start_node}\n"
+            f"Is Connected: {nx.is_connected(self.graph) if self.graph else '-'}\n"
+            f"Result graph nodes: {self.spread_graph.nodes() if self.spread_graph else '-'}\n"
+            f"Result graph edges: {self.spread_graph.edges() if self.spread_graph else '-'}\n"
+        )
         return gstr
-
 
     def is_valid(self) -> bool:
         """
@@ -57,7 +57,7 @@ class BfsCommunityGraph:
         if valid and not isinstance(self.start_node, str):
             print("Error: Start node should be a string.")
             valid = False
-        
+
         if valid and not all(isinstance(node, str) for node in self.graph.nodes):
             print("Error: Nodes should be strings.")
             valid = False
@@ -72,7 +72,7 @@ class BfsCommunityGraph:
             )
 
         return valid
-    
+
     def __print_log(self, message: str) -> None:
         """
         Print log message if debug flag is set.
@@ -170,9 +170,7 @@ class BfsCommunityGraph:
         self.graph.add_nodes_from(nodes)
         self.graph.add_edges_from(edges)
 
-    def random_community(
-        self, num_nodes: int, edge_prob: float, seed: int = None
-    ) -> None:
+    def random_community(self, num_nodes: int, edge_prob: float, seed: int = None) -> None:
         """
         Generate a random community graph with string nodes.
 
@@ -206,9 +204,7 @@ class BfsCommunityGraph:
 
         pos = nx.spring_layout(self.graph)
         plt.figure(figsize=figsize)
-        nx.draw_networkx_nodes(
-            self.graph, pos, node_size=node_size, node_color=node_color
-        )
+        nx.draw_networkx_nodes(self.graph, pos, node_size=node_size, node_color=node_color)
         nx.draw_networkx_labels(self.graph, pos)
         nx.draw_networkx_edges(self.graph, pos, edge_color=edge_color, arrows=False)
         plt.title(CONNECTIONS_TITLE)
@@ -234,9 +230,7 @@ class BfsCommunityGraph:
         :param alpha: Transparency of the nodes
         """
         if not self.spread_graph:
-            print(
-                "Error: Spread graph is not set. Use BfsCommunityGraph.run() method first."
-            )
+            print("Error: Spread graph is not set. Use BfsCommunityGraph.run() method first.")
             return
 
         plt.figure(figsize=figsize)
@@ -262,7 +256,7 @@ class BfsCommunityGraph:
             node_size=node_size,
             arrowsize=arrow_size,
         )
-        plt.title(f'{SPREAD_TITLE} from {self.start_node}')
+        plt.title(f"{SPREAD_TITLE} from {self.start_node}")
         plt.show()
 
     def draw_compare(
@@ -299,9 +293,7 @@ class BfsCommunityGraph:
             self.graph, pos, ax=axes[0], node_size=node_size, node_color=node_color
         )
         nx.draw_networkx_labels(self.graph, pos, ax=axes[0])
-        nx.draw_networkx_edges(
-            self.graph, pos, ax=axes[0], edge_color=edge_color, arrows=False
-        )
+        nx.draw_networkx_edges(self.graph, pos, ax=axes[0], edge_color=edge_color, arrows=False)
         axes[0].set_title(CONNECTIONS_TITLE)
 
         pos = nx.spring_layout(self.spread_graph)
@@ -325,6 +317,6 @@ class BfsCommunityGraph:
             node_size=node_size,
             arrowsize=spread_arrow_size,
         )
-        axes[1].set_title(f'{SPREAD_TITLE} from {self.start_node}')
+        axes[1].set_title(f"{SPREAD_TITLE} from {self.start_node}")
 
         plt.show()
