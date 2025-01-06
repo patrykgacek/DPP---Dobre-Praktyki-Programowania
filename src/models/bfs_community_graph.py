@@ -21,8 +21,27 @@ class BfsCommunityGraph:
         self.graph: Graph = graph  # Social network graph
         self.start_node: str = start_node  # Start node for BFS algorithm
         self.spread_graph: DiGraph = None  # Spread information graph
+        self.bfs_deep: int = 0  # deepest level of the result graph
         self.bfs_order: List[str] = []  # Order of visited nodes
         self.bfs_debug: bool = debug  # Debug flag for BFS algorithm
+
+    
+    def __str__(self) -> str:
+        """
+        Return the string representation of the graph.
+
+        :return: String representation of the graph
+        """
+        gstr = (f"Graph Nodes: {self.graph.nodes() if self.graph else '-'}\n"
+                f"Graph Edges: {self.graph.edges() if self.graph else '-'}\n"
+                f"Deep: {self.bfs_deep}\n"
+                f"Spread order: {self.bfs_order}\n"
+                f"Start node: {self.start_node}\n"
+                f"Is Connected: {nx.is_connected(self.graph) if self.graph else '-'}\n"
+                f"Result graph nodes: {self.spread_graph.nodes() if self.spread_graph else '-'}\n"
+                f"Result graph edges: {self.spread_graph.edges() if self.spread_graph else '-'}\n")
+        return gstr
+
 
     def is_valid(self) -> bool:
         """
@@ -87,7 +106,9 @@ class BfsCommunityGraph:
             for neighbor in self.graph.neighbors(node):
                 if neighbor not in visited:
                     self.__print_log(f"Adding {neighbor} to the queue")
-                    queue.append((neighbor, level + 1))
+                    next_level = level + 1
+                    queue.append((neighbor, next_level))
+                    self.bfs_deep = max(self.bfs_deep, next_level)
                     visited.add(neighbor)
                     self.spread_graph.add_node(neighbor)
                     self.spread_graph.add_edge(node, neighbor)
