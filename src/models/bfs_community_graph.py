@@ -1,7 +1,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 from collections import deque
-from networkx import Graph
+from networkx import Graph, DiGraph
 from typing import List, Tuple, Dict
 
 SPREAD_TITLE = "Spread of Information"
@@ -20,11 +20,11 @@ class BfsCommunityGraph:
     def __init__(self, graph: Graph = None, start_node: str = None, debug: bool = False):
         self.graph: Graph = graph  # Social network graph
         self.start_node: str = start_node  # Start node for BFS algorithm
-        self.spread_graph: Graph = None  # Spread information graph
+        self.spread_graph: DiGraph = None  # Spread information graph
         self.bfs_order: List[str] = []  # Order of visited nodes
         self.bfs_debug: bool = debug  # Debug flag for BFS algorithm
 
-    def __is_valid(self) -> bool:
+    def is_valid(self) -> bool:
         """
         Check if the graph is valid for BFS algorithm.
 
@@ -35,6 +35,13 @@ class BfsCommunityGraph:
             print("Error: Graph is not set.")
             valid = False
 
+        if valid and not isinstance(self.start_node, str):
+            print("Error: Start node should be a string.")
+            valid = False
+        
+        if valid and not all(isinstance(node, str) for node in self.graph.nodes):
+            print("Error: Nodes should be strings.")
+            valid = False
 
         if valid and self.start_node not in self.graph.nodes:
             print("Error: Start node is not in the graph.")
@@ -124,7 +131,7 @@ class BfsCommunityGraph:
         else:
             self.start_node = list(self.graph.nodes)[0] if self.graph else None
 
-        if not self.__is_valid():
+        if not self.is_valid():
             return {}
 
         self.__bfs()
