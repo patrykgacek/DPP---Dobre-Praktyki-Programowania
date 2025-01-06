@@ -1,5 +1,7 @@
 # Application of the BFS algorithm to analyze the spread of information in social networks
 
+![Example result](./example_result.png)
+
 ## Description
 
 Python-based application designed to analyze the spread of information within social networks using the Breadth-First Search (BFS) algorithm. This tool allows users to visualize social network connections and the spread of information from a given starting node.
