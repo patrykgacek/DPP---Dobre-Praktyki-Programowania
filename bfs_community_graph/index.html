@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>BFS Community Graph - TGiS-BFS Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "BFS Community Graph";
+        var mkdocs_page_input_path = "bfs_community_graph.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> TGiS-BFS Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">BFS Community Graph</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#class-overview">Class Overview</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bfscommunitygraph">BfsCommunityGraph</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#methods">Methods</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#run">run</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#parameters_1">Parameters</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#returns">Returns</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#make_graph">make_graph</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#parameters_2">Parameters</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#random_community">random_community</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#parameters_3">Parameters</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#visualization-methods">Visualization Methods</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#draw_connections">draw_connections</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#draw_spread">draw_spread</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#draw_compare">draw_compare</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#creating-a-custom-network">Creating a Custom Network</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#analyzing-a-random-community">Analyzing a Random Community</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../auto_bfs_community_graph/">DocString (BfsCommunityGraph)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../auto_test_vfs_community_graph/">DocString (Tests)</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">TGiS-BFS Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">BFS Community Graph</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="bfs-community-graph">BFS Community Graph</h1>
+<p>This class provides functionality to create, analyze, and visualize how information spreads through social network.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="language-python">from bfs_community_graph import BfsCommunityGraph
+
+# Create a new instance
+graph = BfsCommunityGraph()
+
+# Generate a random community
+graph.random_community(num_nodes=5, edge_prob=0.4)
+
+# Run BFS analysis starting from &quot;Person_0&quot;
+results = graph.run(start_node=&quot;Person_0&quot;)
+
+# Visualize the results
+graph.draw_compare()
+</code></pre>
+<h2 id="class-overview">Class Overview</h2>
+<h3 id="bfscommunitygraph">BfsCommunityGraph</h3>
+<pre><code class="language-python">BfsCommunityGraph(graph: Graph = None, start_node: str = None, debug: bool = False)
+</code></pre>
+<p>Main class for social network analysis using BFS algorithm.</p>
+<h4 id="parameters">Parameters</h4>
+<ul>
+<li><code>graph</code> (networkx.Graph, optional): Initial graph representing the social network</li>
+<li><code>start_node</code> (str, optional): Starting node for BFS traversal</li>
+<li><code>debug</code> (bool, optional): Enable debug logging during BFS algorithm execution</li>
+</ul>
+<h2 id="methods">Methods</h2>
+<h3 id="run">run</h3>
+<pre><code class="language-python">def run(start_node: str = None) -&gt; List[Dict[str, int]]
+</code></pre>
+<p>Executes the BFS algorithm on the graph.</p>
+<h4 id="parameters_1">Parameters</h4>
+<ul>
+<li><code>start_node</code> (str, optional): Node to start the BFS traversal from</li>
+</ul>
+<h4 id="returns">Returns</h4>
+<ul>
+<li>List of dictionaries containing nodes and their levels in BFS order</li>
+</ul>
+<h3 id="make_graph">make_graph</h3>
+<pre><code class="language-python">def make_graph(nodes: List[str], edges: List[Tuple[str, str]]) -&gt; None
+</code></pre>
+<p>Creates a graph from given nodes and edges.</p>
+<h4 id="parameters_2">Parameters</h4>
+<ul>
+<li><code>nodes</code>: List of node names</li>
+<li><code>edges</code>: List of edge tuples (source, target)</li>
+</ul>
+<h3 id="random_community">random_community</h3>
+<pre><code class="language-python">def random_community(num_nodes: int, edge_prob: float, seed: int = None) -&gt; None
+</code></pre>
+<p>Generates a random community graph.</p>
+<h4 id="parameters_3">Parameters</h4>
+<ul>
+<li><code>num_nodes</code>: Number of nodes to generate</li>
+<li><code>edge_prob</code>: Probability of edge creation between nodes</li>
+<li><code>seed</code> (optional): Random seed for reproducibility</li>
+</ul>
+<h3 id="visualization-methods">Visualization Methods</h3>
+<h4 id="draw_connections">draw_connections</h4>
+<pre><code class="language-python">def draw_connections(
+    figsize: Tuple[int, int] = (10, 8),
+    node_size: int = 2000,
+    node_color: str = &quot;lightblue&quot;,
+    edge_color: str = &quot;gray&quot;
+) -&gt; None
+</code></pre>
+<p>Visualizes the social network connections.</p>
+<h4 id="draw_spread">draw_spread</h4>
+<pre><code class="language-python">def draw_spread(
+    figsize: Tuple[int, int] = (10, 8),
+    node_size: int = 2000,
+    edge_color: str = &quot;gray&quot;,
+    cmap: plt.cm = plt.cm.summer,
+    alpha: float = 0.5,
+    arrow_style: str = &quot;-|&gt;&quot;,
+    arrow_size: int = 20
+) -&gt; None
+</code></pre>
+<p>Visualizes the information spread pattern.</p>
+<h4 id="draw_compare">draw_compare</h4>
+<pre><code class="language-python">def draw_compare(
+    figsize: Tuple[int, int] = (20, 8),
+    node_size: int = 2000,
+    node_color: str = &quot;lightblue&quot;,
+    edge_color: str = &quot;gray&quot;,
+    spread_cmap: plt.cm = plt.cm.summer,
+    spread_arrow_size: int = 20,
+    spread_alpha: float = 0.5,
+    spread_arrow_style: str = &quot;-|&gt;&quot;
+) -&gt; None
+</code></pre>
+<p>Displays both the original network and spread pattern side by side.</p>
+<h2 id="examples">Examples</h2>
+<h3 id="creating-a-custom-network">Creating a Custom Network</h3>
+<pre><code class="language-python"># Create a new graph instance
+graph = BfsCommunityGraph()
+
+# Define nodes and edges
+nodes = [
+    &quot;Patryk&quot;,
+    &quot;Kasia&quot;,
+    &quot;Kajetan&quot;,
+    &quot;Ania&quot;,
+    &quot;Artur&quot;,
+    &quot;Karolina&quot;,
+    &quot;Tomek&quot;,
+    &quot;Klaudia&quot;,
+    &quot;Krzysiek&quot;,
+    &quot;Asia&quot;,
+]
+edges = [
+    (&quot;Patryk&quot;, &quot;Kasia&quot;),
+    (&quot;Patryk&quot;, &quot;Kajetan&quot;),
+    (&quot;Patryk&quot;, &quot;Ania&quot;),
+    (&quot;Patryk&quot;, &quot;Artur&quot;),
+    (&quot;Kasia&quot;, &quot;Karolina&quot;),
+    (&quot;Kasia&quot;, &quot;Tomek&quot;),
+    (&quot;Kajetan&quot;, &quot;Klaudia&quot;),
+    (&quot;Kajetan&quot;, &quot;Krzysiek&quot;),
+    (&quot;Ania&quot;, &quot;Asia&quot;),
+    (&quot;Ania&quot;, &quot;Krzysiek&quot;),
+    (&quot;Artur&quot;, &quot;Karolina&quot;),
+    (&quot;Artur&quot;, &quot;Tomek&quot;),
+    (&quot;Karolina&quot;, &quot;Klaudia&quot;),
+    (&quot;Klaudia&quot;, &quot;Krzysiek&quot;),
+    (&quot;Krzysiek&quot;, &quot;Asia&quot;),
+]
+
+# Create the graph
+graph.make_graph(nodes, edges)
+
+# Run analysis starting from Patryk
+results = graph.run(&quot;Patryk&quot;)
+
+# Visualize the results
+graph.draw_compare()
+</code></pre>
+<h3 id="analyzing-a-random-community">Analyzing a Random Community</h3>
+<pre><code class="language-python"># Create and analyze a random community
+graph = BfsCommunityGraph()
+graph.random_community(num_nodes=5, edge_prob=0.4, seed=42)
+results = graph.run(&quot;Person_0&quot;)
+
+# Show the spread visualization
+graph.draw_spread()
+</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>The class uses NetworkX for graph operations and Matplotlib for visualization</li>
+<li>Node names should be strings</li>
+<li>It is recommended to ensure that the graph is connected for proper BFS traversal</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../auto_bfs_community_graph/" class="btn btn-neutral float-right" title="DocString (BfsCommunityGraph)">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../auto_bfs_community_graph/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

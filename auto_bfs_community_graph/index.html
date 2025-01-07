@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>DocString (BfsCommunityGraph) - TGiS-BFS Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "DocString (BfsCommunityGraph)";
+        var mkdocs_page_input_path = "auto_bfs_community_graph.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> TGiS-BFS Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../bfs_community_graph/">BFS Community Graph</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">DocString (BfsCommunityGraph)</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#src.models.bfs_community_graph.BfsCommunityGraph.__bfs">__bfs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#src.models.bfs_community_graph.BfsCommunityGraph.__calc_node_colors">__calc_node_colors</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#src.models.bfs_community_graph.BfsCommunityGraph.__clean_results">__clean_results</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#src.models.bfs_community_graph.BfsCommunityGraph.__print_log">__print_log</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#src.models.bfs_community_graph.BfsCommunityGraph.__str__">__str__</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#src.models.bfs_community_graph.BfsCommunityGraph.draw_compare">draw_compare</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#src.models.bfs_community_graph.BfsCommunityGraph.draw_connections">draw_connections</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#src.models.bfs_community_graph.BfsCommunityGraph.draw_spread">draw_spread</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#src.models.bfs_community_graph.BfsCommunityGraph.is_valid">is_valid</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#src.models.bfs_community_graph.BfsCommunityGraph.make_graph">make_graph</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#src.models.bfs_community_graph.BfsCommunityGraph.random_community">random_community</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#src.models.bfs_community_graph.BfsCommunityGraph.run">run</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../auto_test_vfs_community_graph/">DocString (Tests)</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">TGiS-BFS Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">DocString (BfsCommunityGraph)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p>Automatically generated with mkdocstrings</p>
+<hr />
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="src.models.bfs_community_graph.BfsCommunityGraph" class="doc doc-heading">
+            <code>src.models.bfs_community_graph.BfsCommunityGraph</code>
+
+
+</h2>
+
+
+    <div class="doc doc-contents first">
+
+
+        <p>Impletentation of the BFS algorithm for analyzing information spread in social networks.</p>
+<p>:param graph: Graph object representing the social network
+:param start_node: The node to start the BFS traversal from
+:param debug: Flag for printing debug information during the BFS algorithm</p>
+
+
+
+
+
+
+              <details class="quote">
+                <summary>Source code in <code>src/models/bfs_community_graph.py</code></summary>
+                <pre class="highlight"><code class="language-python">class BfsCommunityGraph:
+    """
+    Impletentation of the BFS algorithm for analyzing information spread in social networks.
+
+    :param graph: Graph object representing the social network
+    :param start_node: The node to start the BFS traversal from
+    :param debug: Flag for printing debug information during the BFS algorithm
+    """
+
+    def __init__(self, graph: Graph = None, start_node: str = None, debug: bool = False):
+        self.graph: Graph = graph  # Social network graph
+        self.start_node: str = start_node  # Start node for BFS algorithm
+        self.spread_graph: DiGraph = None  # Spread information graph
+        self.bfs_deep: int = 0  # deepest level of the result graph
+        self.bfs_order: List[str] = []  # Order of visited nodes
+        self.bfs_debug: bool = debug  # Debug flag for BFS algorithm
+
+    def __str__(self) -&gt; str:
+        """
+        Return the string representation of the graph.
+
+        :return: String representation of the graph
+        """
+        gstr = (
+            f"Graph Nodes: {self.graph.nodes() if self.graph else '-'}\n"
+            f"Graph Edges: {self.graph.edges() if self.graph else '-'}\n"
+            f"Deep: {self.bfs_deep}\n"
+            f"Spread order: {self.bfs_order}\n"
+            f"Start node: {self.start_node}\n"
+            f"Is Connected: {nx.is_connected(self.graph) if self.graph else '-'}\n"
+            f"Result graph nodes: {self.spread_graph.nodes() if self.spread_graph else '-'}\n"
+            f"Result graph edges: {self.spread_graph.edges() if self.spread_graph else '-'}\n"
+        )
+        return gstr
+
+    def is_valid(self) -&gt; bool:
+        """
+        Check if the graph is valid for BFS algorithm.
+
+        :return: True if the graph is valid, False otherwise
+        """
+        valid = True
+        if not self.graph:
+            print("Error: Graph is not set.")
+            valid = False
+
+        if valid and not isinstance(self.start_node, str):
+            print("Error: Start node should be a string.")
+            valid = False
+
+        if valid and not all(isinstance(node, str) for node in self.graph.nodes):
+            print("Error: Nodes should be strings.")
+            valid = False
+
+        if valid and self.start_node not in self.graph.nodes:
+            print("Error: Start node is not in the graph.")
+            valid = False
+
+        if not valid:
+            print(
+                "Please resolve the above issues before analyzing information spread in social networks."
+            )
+
+        return valid
+
+    def __print_log(self, message: str) -&gt; None:
+        """
+        Print log message if debug flag is set.
+
+        :param message: Log message to print
+        """
+        if self.bfs_debug:
+            print(message)
+
+    def __bfs(self) -&gt; List[str]:
+        """
+        Perform BFS traversal starting from the given node.
+
+        :return: List of nodes in BFS order
+        """
+        self.spread_graph = nx.DiGraph()
+        visited = set()
+        queue = deque([(self.start_node, 0)])
+        bfs_order = []
+
+        visited.add(self.start_node)
+        self.spread_graph.add_node(self.start_node)
+
+        while queue:
+            self.__print_log(f"Queue: {queue}")
+            node, level = queue.popleft()
+            self.__print_log(f"Visiting {node} at level {level}")
+            bfs_order.append({node: level})
+
+            self.__print_log(f"Neighbors of {node}: {list(self.graph.neighbors(node))}")
+            for neighbor in self.graph.neighbors(node):
+                if neighbor not in visited:
+                    self.__print_log(f"Adding {neighbor} to the queue")
+                    next_level = level + 1
+                    queue.append((neighbor, next_level))
+                    self.bfs_deep = max(self.bfs_deep, next_level)
+                    visited.add(neighbor)
+                    self.spread_graph.add_node(neighbor)
+                    self.spread_graph.add_edge(node, neighbor)
+                else:
+                    self.__print_log(f"Skipping {neighbor}")
+
+        self.__print_log(f"BFS end. Order: {bfs_order}")
+        self.bfs_order = bfs_order
+        return bfs_order
+
+    def __clean_results(self) -&gt; None:
+        """
+        Clean the results of the BFS algorithm.
+        """
+        self.bfs_order = []
+        self.start_node = None
+        self.spread_graph = None
+
+    def __calc_node_colors(self, cmap: plt.cm) -&gt; plt.cm:
+        """
+        Return a colormap for coloring nodes based on their levels.
+
+        :param cmap: Colormap object
+
+        :return: Calculated colormap for coloring nodes
+        """
+        levels = [list(node.values())[0] for node in self.bfs_order]
+        norm = plt.Normalize(levels[0], levels[-1])
+        return cmap(norm(levels))
+
+    def run(self, start_node: str = None) -&gt; List[Dict[str, int]]:
+        """
+        Run the BFS algorithm and return the results.
+
+        :param start_node: The node to start the BFS traversal from
+
+        :return: List of nodes in BFS order
+        """
+        if start_node:
+            self.start_node = start_node
+        else:
+            self.start_node = list(self.graph.nodes)[0] if self.graph else None
+
+        if not self.is_valid():
+            return {}
+
+        self.__bfs()
+        return self.bfs_order
+
+    def make_graph(self, nodes: List[str], edges: List[Tuple[str, str]]) -&gt; None:
+        """
+        Create a graph from the given nodes and edges.
+
+        :param nodes: List of nodes in the graph
+        :param edges: List of edges in the graph
+        """
+        self.__clean_results()
+        self.graph = nx.Graph()
+        self.graph.add_nodes_from(nodes)
+        self.graph.add_edges_from(edges)
+
+    def random_community(self, num_nodes: int, edge_prob: float, seed: int = None) -&gt; None:
+        """
+        Generate a random community graph with string nodes.
+
+        :param num_nodes: Number of nodes in the graph
+        :param edge_prob: Probability of an edge between nodes
+        :param seed: Random seed for reproducibility
+        """
+        self.__clean_results()
+        self.graph = nx.erdos_renyi_graph(num_nodes, edge_prob, seed)
+        labels = {i: f"Person_{i}" for i in range(num_nodes)}
+        self.graph = nx.relabel_nodes(self.graph, labels)
+
+    def draw_connections(
+        self,
+        figsize: Tuple[int, int] = (10, 8),
+        node_size: int = 2000,
+        node_color: str = "lightblue",
+        edge_color: str = "gray",
+    ) -&gt; None:
+        """
+        Draw the connections of the graph.
+
+        :param figsize: Figure size for the plot
+        :param node_size: Size of the nodes
+        :param node_color: Color of the nodes
+        :param edge_color: Color of the edges
+        """
+        if not self.graph:
+            print("Error: Graph is not set. Load some data first.")
+            return
+
+        pos = nx.spring_layout(self.graph)
+        plt.figure(figsize=figsize)
+        nx.draw_networkx_nodes(self.graph, pos, node_size=node_size, node_color=node_color)
+        nx.draw_networkx_labels(self.graph, pos)
+        nx.draw_networkx_edges(self.graph, pos, edge_color=edge_color, arrows=False)
+        plt.title(CONNECTIONS_TITLE)
+        plt.show()
+
+    def draw_spread(
+        self,
+        figsize: Tuple[int, int] = (10, 8),
+        node_size: int = 2000,
+        edge_color: str = "gray",
+        cmap: plt.cm = plt.cm.summer,
+        alpha: float = 0.5,
+        arrow_style: str = "-|&gt;",
+        arrow_size: int = 20,
+    ) -&gt; None:
+        """
+        Draw the spread of information from the start node.
+
+        :param figsize: Figure size for the plot
+        :param node_size: Size of the nodes
+        :param edge_color: Color of the edges
+        :param cmap: Colormap for coloring nodes based on their levels
+        :param alpha: Transparency of the nodes
+        """
+        if not self.spread_graph:
+            print("Error: Spread graph is not set. Use BfsCommunityGraph.run() method first.")
+            return
+
+        plt.figure(figsize=figsize)
+        pos = nx.spring_layout(self.spread_graph)
+        node_colors = self.__calc_node_colors(cmap)
+        nx.draw_networkx_nodes(
+            self.spread_graph,
+            pos,
+            node_size=node_size,
+            alpha=alpha,
+            node_color=node_colors,
+        )
+        nx.draw_networkx_labels(
+            self.spread_graph,
+            pos,
+        )
+        nx.draw_networkx_edges(
+            self.spread_graph,
+            pos,
+            edge_color=edge_color,
+            arrows=True,
+            arrowstyle=arrow_style,
+            node_size=node_size,
+            arrowsize=arrow_size,
+        )
+        plt.title(f"{SPREAD_TITLE} from {self.start_node}")
+        plt.show()
+
+    def draw_compare(
+        self,
+        figsize: Tuple[int, int] = (20, 8),
+        node_size: int = 2000,
+        node_color: str = "lightblue",
+        edge_color: str = "gray",
+        spread_cmap: plt.cm = plt.cm.summer,
+        spread_arrow_size: int = 20,
+        spread_alpha: float = 0.5,
+        spread_arrow_style: str = "-|&gt;",
+    ) -&gt; None:
+        """
+        Draw the original graph and the spread graph side by side.
+
+        :param figsize: Figure size for the plot
+        :param node_size: Size of the nodes
+        :param node_color: Color of the nodes
+        :param edge_color: Color of the edges
+        :param spread_cmap: Colormap for coloring nodes based on their levels
+        :param spread_arrow_size: Size of the arrows
+        :param spread_alpha: Transparency of the nodes
+        :param spread_arrow_style: Style of the arrows
+        """
+        if not self.graph or not self.spread_graph:
+            print("Error: Compares is not available. Load some data and run BFS first.")
+            return
+
+        _, axes = plt.subplots(1, 2, figsize=figsize)
+
+        pos = nx.spring_layout(self.graph)
+        nx.draw_networkx_nodes(
+            self.graph, pos, ax=axes[0], node_size=node_size, node_color=node_color
+        )
+        nx.draw_networkx_labels(self.graph, pos, ax=axes[0])
+        nx.draw_networkx_edges(self.graph, pos, ax=axes[0], edge_color=edge_color, arrows=False)
+        axes[0].set_title(CONNECTIONS_TITLE)
+
+        pos = nx.spring_layout(self.spread_graph)
+        node_colors = self.__calc_node_colors(spread_cmap)
+        nx.draw_networkx_nodes(
+            self.spread_graph,
+            pos,
+            ax=axes[1],
+            node_size=node_size,
+            alpha=spread_alpha,
+            node_color=node_colors,
+        )
+        nx.draw_networkx_labels(self.spread_graph, pos, ax=axes[1])
+        nx.draw_networkx_edges(
+            self.spread_graph,
+            pos,
+            ax=axes[1],
+            edge_color=edge_color,
+            arrows=True,
+            arrowstyle=spread_arrow_style,
+            node_size=node_size,
+            arrowsize=spread_arrow_size,
+        )
+        axes[1].set_title(f"{SPREAD_TITLE} from {self.start_node}")
+
+        plt.show()</code></pre>
+              </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.models.bfs_community_graph.BfsCommunityGraph.__bfs" class="doc doc-heading">
+            <code class="highlight language-python">__bfs()</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Perform BFS traversal starting from the given node.</p>
+<p>:return: List of nodes in BFS order</p>
+
+            <details class="quote">
+              <summary>Source code in <code>src/models/bfs_community_graph.py</code></summary>
+              <pre class="highlight"><code class="language-python">def __bfs(self) -&gt; List[str]:
+    """
+    Perform BFS traversal starting from the given node.
+
+    :return: List of nodes in BFS order
+    """
+    self.spread_graph = nx.DiGraph()
+    visited = set()
+    queue = deque([(self.start_node, 0)])
+    bfs_order = []
+
+    visited.add(self.start_node)
+    self.spread_graph.add_node(self.start_node)
+
+    while queue:
+        self.__print_log(f"Queue: {queue}")
+        node, level = queue.popleft()
+        self.__print_log(f"Visiting {node} at level {level}")
+        bfs_order.append({node: level})
+
+        self.__print_log(f"Neighbors of {node}: {list(self.graph.neighbors(node))}")
+        for neighbor in self.graph.neighbors(node):
+            if neighbor not in visited:
+                self.__print_log(f"Adding {neighbor} to the queue")
+                next_level = level + 1
+                queue.append((neighbor, next_level))
+                self.bfs_deep = max(self.bfs_deep, next_level)
+                visited.add(neighbor)
+                self.spread_graph.add_node(neighbor)
+                self.spread_graph.add_edge(node, neighbor)
+            else:
+                self.__print_log(f"Skipping {neighbor}")
+
+    self.__print_log(f"BFS end. Order: {bfs_order}")
+    self.bfs_order = bfs_order
+    return bfs_order</code></pre>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.models.bfs_community_graph.BfsCommunityGraph.__calc_node_colors" class="doc doc-heading">
+            <code class="highlight language-python">__calc_node_colors(cmap)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Return a colormap for coloring nodes based on their levels.</p>
+<p>:param cmap: Colormap object</p>
+<p>:return: Calculated colormap for coloring nodes</p>
+
+            <details class="quote">
+              <summary>Source code in <code>src/models/bfs_community_graph.py</code></summary>
+              <pre class="highlight"><code class="language-python">def __calc_node_colors(self, cmap: plt.cm) -&gt; plt.cm:
+    """
+    Return a colormap for coloring nodes based on their levels.
+
+    :param cmap: Colormap object
+
+    :return: Calculated colormap for coloring nodes
+    """
+    levels = [list(node.values())[0] for node in self.bfs_order]
+    norm = plt.Normalize(levels[0], levels[-1])
+    return cmap(norm(levels))</code></pre>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.models.bfs_community_graph.BfsCommunityGraph.__clean_results" class="doc doc-heading">
+            <code class="highlight language-python">__clean_results()</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Clean the results of the BFS algorithm.</p>
+
+            <details class="quote">
+              <summary>Source code in <code>src/models/bfs_community_graph.py</code></summary>
+              <pre class="highlight"><code class="language-python">def __clean_results(self) -&gt; None:
+    """
+    Clean the results of the BFS algorithm.
+    """
+    self.bfs_order = []
+    self.start_node = None
+    self.spread_graph = None</code></pre>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.models.bfs_community_graph.BfsCommunityGraph.__print_log" class="doc doc-heading">
+            <code class="highlight language-python">__print_log(message)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Print log message if debug flag is set.</p>
+<p>:param message: Log message to print</p>
+
+            <details class="quote">
+              <summary>Source code in <code>src/models/bfs_community_graph.py</code></summary>
+              <pre class="highlight"><code class="language-python">def __print_log(self, message: str) -&gt; None:
+    """
+    Print log message if debug flag is set.
+
+    :param message: Log message to print
+    """
+    if self.bfs_debug:
+        print(message)</code></pre>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.models.bfs_community_graph.BfsCommunityGraph.__str__" class="doc doc-heading">
+            <code class="highlight language-python">__str__()</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Return the string representation of the graph.</p>
+<p>:return: String representation of the graph</p>
+
+            <details class="quote">
+              <summary>Source code in <code>src/models/bfs_community_graph.py</code></summary>
+              <pre class="highlight"><code class="language-python">def __str__(self) -&gt; str:
+    """
+    Return the string representation of the graph.
+
+    :return: String representation of the graph
+    """
+    gstr = (
+        f"Graph Nodes: {self.graph.nodes() if self.graph else '-'}\n"
+        f"Graph Edges: {self.graph.edges() if self.graph else '-'}\n"
+        f"Deep: {self.bfs_deep}\n"
+        f"Spread order: {self.bfs_order}\n"
+        f"Start node: {self.start_node}\n"
+        f"Is Connected: {nx.is_connected(self.graph) if self.graph else '-'}\n"
+        f"Result graph nodes: {self.spread_graph.nodes() if self.spread_graph else '-'}\n"
+        f"Result graph edges: {self.spread_graph.edges() if self.spread_graph else '-'}\n"
+    )
+    return gstr</code></pre>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.models.bfs_community_graph.BfsCommunityGraph.draw_compare" class="doc doc-heading">
+            <code class="highlight language-python">draw_compare(figsize=(20, 8), node_size=2000, node_color='lightblue', edge_color='gray', spread_cmap=plt.cm.summer, spread_arrow_size=20, spread_alpha=0.5, spread_arrow_style='-|&gt;')</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Draw the original graph and the spread graph side by side.</p>
+<p>:param figsize: Figure size for the plot
+:param node_size: Size of the nodes
+:param node_color: Color of the nodes
+:param edge_color: Color of the edges
+:param spread_cmap: Colormap for coloring nodes based on their levels
+:param spread_arrow_size: Size of the arrows
+:param spread_alpha: Transparency of the nodes
+:param spread_arrow_style: Style of the arrows</p>
+
+            <details class="quote">
+              <summary>Source code in <code>src/models/bfs_community_graph.py</code></summary>
+              <pre class="highlight"><code class="language-python">def draw_compare(
+    self,
+    figsize: Tuple[int, int] = (20, 8),
+    node_size: int = 2000,
+    node_color: str = "lightblue",
+    edge_color: str = "gray",
+    spread_cmap: plt.cm = plt.cm.summer,
+    spread_arrow_size: int = 20,
+    spread_alpha: float = 0.5,
+    spread_arrow_style: str = "-|&gt;",
+) -&gt; None:
+    """
+    Draw the original graph and the spread graph side by side.
+
+    :param figsize: Figure size for the plot
+    :param node_size: Size of the nodes
+    :param node_color: Color of the nodes
+    :param edge_color: Color of the edges
+    :param spread_cmap: Colormap for coloring nodes based on their levels
+    :param spread_arrow_size: Size of the arrows
+    :param spread_alpha: Transparency of the nodes
+    :param spread_arrow_style: Style of the arrows
+    """
+    if not self.graph or not self.spread_graph:
+        print("Error: Compares is not available. Load some data and run BFS first.")
+        return
+
+    _, axes = plt.subplots(1, 2, figsize=figsize)
+
+    pos = nx.spring_layout(self.graph)
+    nx.draw_networkx_nodes(
+        self.graph, pos, ax=axes[0], node_size=node_size, node_color=node_color
+    )
+    nx.draw_networkx_labels(self.graph, pos, ax=axes[0])
+    nx.draw_networkx_edges(self.graph, pos, ax=axes[0], edge_color=edge_color, arrows=False)
+    axes[0].set_title(CONNECTIONS_TITLE)
+
+    pos = nx.spring_layout(self.spread_graph)
+    node_colors = self.__calc_node_colors(spread_cmap)
+    nx.draw_networkx_nodes(
+        self.spread_graph,
+        pos,
+        ax=axes[1],
+        node_size=node_size,
+        alpha=spread_alpha,
+        node_color=node_colors,
+    )
+    nx.draw_networkx_labels(self.spread_graph, pos, ax=axes[1])
+    nx.draw_networkx_edges(
+        self.spread_graph,
+        pos,
+        ax=axes[1],
+        edge_color=edge_color,
+        arrows=True,
+        arrowstyle=spread_arrow_style,
+        node_size=node_size,
+        arrowsize=spread_arrow_size,
+    )
+    axes[1].set_title(f"{SPREAD_TITLE} from {self.start_node}")
+
+    plt.show()</code></pre>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.models.bfs_community_graph.BfsCommunityGraph.draw_connections" class="doc doc-heading">
+            <code class="highlight language-python">draw_connections(figsize=(10, 8), node_size=2000, node_color='lightblue', edge_color='gray')</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Draw the connections of the graph.</p>
+<p>:param figsize: Figure size for the plot
+:param node_size: Size of the nodes
+:param node_color: Color of the nodes
+:param edge_color: Color of the edges</p>
+
+            <details class="quote">
+              <summary>Source code in <code>src/models/bfs_community_graph.py</code></summary>
+              <pre class="highlight"><code class="language-python">def draw_connections(
+    self,
+    figsize: Tuple[int, int] = (10, 8),
+    node_size: int = 2000,
+    node_color: str = "lightblue",
+    edge_color: str = "gray",
+) -&gt; None:
+    """
+    Draw the connections of the graph.
+
+    :param figsize: Figure size for the plot
+    :param node_size: Size of the nodes
+    :param node_color: Color of the nodes
+    :param edge_color: Color of the edges
+    """
+    if not self.graph:
+        print("Error: Graph is not set. Load some data first.")
+        return
+
+    pos = nx.spring_layout(self.graph)
+    plt.figure(figsize=figsize)
+    nx.draw_networkx_nodes(self.graph, pos, node_size=node_size, node_color=node_color)
+    nx.draw_networkx_labels(self.graph, pos)
+    nx.draw_networkx_edges(self.graph, pos, edge_color=edge_color, arrows=False)
+    plt.title(CONNECTIONS_TITLE)
+    plt.show()</code></pre>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.models.bfs_community_graph.BfsCommunityGraph.draw_spread" class="doc doc-heading">
+            <code class="highlight language-python">draw_spread(figsize=(10, 8), node_size=2000, edge_color='gray', cmap=plt.cm.summer, alpha=0.5, arrow_style='-|&gt;', arrow_size=20)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Draw the spread of information from the start node.</p>
+<p>:param figsize: Figure size for the plot
+:param node_size: Size of the nodes
+:param edge_color: Color of the edges
+:param cmap: Colormap for coloring nodes based on their levels
+:param alpha: Transparency of the nodes</p>
+
+            <details class="quote">
+              <summary>Source code in <code>src/models/bfs_community_graph.py</code></summary>
+              <pre class="highlight"><code class="language-python">def draw_spread(
+    self,
+    figsize: Tuple[int, int] = (10, 8),
+    node_size: int = 2000,
+    edge_color: str = "gray",
+    cmap: plt.cm = plt.cm.summer,
+    alpha: float = 0.5,
+    arrow_style: str = "-|&gt;",
+    arrow_size: int = 20,
+) -&gt; None:
+    """
+    Draw the spread of information from the start node.
+
+    :param figsize: Figure size for the plot
+    :param node_size: Size of the nodes
+    :param edge_color: Color of the edges
+    :param cmap: Colormap for coloring nodes based on their levels
+    :param alpha: Transparency of the nodes
+    """
+    if not self.spread_graph:
+        print("Error: Spread graph is not set. Use BfsCommunityGraph.run() method first.")
+        return
+
+    plt.figure(figsize=figsize)
+    pos = nx.spring_layout(self.spread_graph)
+    node_colors = self.__calc_node_colors(cmap)
+    nx.draw_networkx_nodes(
+        self.spread_graph,
+        pos,
+        node_size=node_size,
+        alpha=alpha,
+        node_color=node_colors,
+    )
+    nx.draw_networkx_labels(
+        self.spread_graph,
+        pos,
+    )
+    nx.draw_networkx_edges(
+        self.spread_graph,
+        pos,
+        edge_color=edge_color,
+        arrows=True,
+        arrowstyle=arrow_style,
+        node_size=node_size,
+        arrowsize=arrow_size,
+    )
+    plt.title(f"{SPREAD_TITLE} from {self.start_node}")
+    plt.show()</code></pre>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.models.bfs_community_graph.BfsCommunityGraph.is_valid" class="doc doc-heading">
+            <code class="highlight language-python">is_valid()</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Check if the graph is valid for BFS algorithm.</p>
+<p>:return: True if the graph is valid, False otherwise</p>
+
+            <details class="quote">
+              <summary>Source code in <code>src/models/bfs_community_graph.py</code></summary>
+              <pre class="highlight"><code class="language-python">def is_valid(self) -&gt; bool:
+    """
+    Check if the graph is valid for BFS algorithm.
+
+    :return: True if the graph is valid, False otherwise
+    """
+    valid = True
+    if not self.graph:
+        print("Error: Graph is not set.")
+        valid = False
+
+    if valid and not isinstance(self.start_node, str):
+        print("Error: Start node should be a string.")
+        valid = False
+
+    if valid and not all(isinstance(node, str) for node in self.graph.nodes):
+        print("Error: Nodes should be strings.")
+        valid = False
+
+    if valid and self.start_node not in self.graph.nodes:
+        print("Error: Start node is not in the graph.")
+        valid = False
+
+    if not valid:
+        print(
+            "Please resolve the above issues before analyzing information spread in social networks."
+        )
+
+    return valid</code></pre>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.models.bfs_community_graph.BfsCommunityGraph.make_graph" class="doc doc-heading">
+            <code class="highlight language-python">make_graph(nodes, edges)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Create a graph from the given nodes and edges.</p>
+<p>:param nodes: List of nodes in the graph
+:param edges: List of edges in the graph</p>
+
+            <details class="quote">
+              <summary>Source code in <code>src/models/bfs_community_graph.py</code></summary>
+              <pre class="highlight"><code class="language-python">def make_graph(self, nodes: List[str], edges: List[Tuple[str, str]]) -&gt; None:
+    """
+    Create a graph from the given nodes and edges.
+
+    :param nodes: List of nodes in the graph
+    :param edges: List of edges in the graph
+    """
+    self.__clean_results()
+    self.graph = nx.Graph()
+    self.graph.add_nodes_from(nodes)
+    self.graph.add_edges_from(edges)</code></pre>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.models.bfs_community_graph.BfsCommunityGraph.random_community" class="doc doc-heading">
+            <code class="highlight language-python">random_community(num_nodes, edge_prob, seed=None)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Generate a random community graph with string nodes.</p>
+<p>:param num_nodes: Number of nodes in the graph
+:param edge_prob: Probability of an edge between nodes
+:param seed: Random seed for reproducibility</p>
+
+            <details class="quote">
+              <summary>Source code in <code>src/models/bfs_community_graph.py</code></summary>
+              <pre class="highlight"><code class="language-python">def random_community(self, num_nodes: int, edge_prob: float, seed: int = None) -&gt; None:
+    """
+    Generate a random community graph with string nodes.
+
+    :param num_nodes: Number of nodes in the graph
+    :param edge_prob: Probability of an edge between nodes
+    :param seed: Random seed for reproducibility
+    """
+    self.__clean_results()
+    self.graph = nx.erdos_renyi_graph(num_nodes, edge_prob, seed)
+    labels = {i: f"Person_{i}" for i in range(num_nodes)}
+    self.graph = nx.relabel_nodes(self.graph, labels)</code></pre>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.models.bfs_community_graph.BfsCommunityGraph.run" class="doc doc-heading">
+            <code class="highlight language-python">run(start_node=None)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Run the BFS algorithm and return the results.</p>
+<p>:param start_node: The node to start the BFS traversal from</p>
+<p>:return: List of nodes in BFS order</p>
+
+            <details class="quote">
+              <summary>Source code in <code>src/models/bfs_community_graph.py</code></summary>
+              <pre class="highlight"><code class="language-python">def run(self, start_node: str = None) -&gt; List[Dict[str, int]]:
+    """
+    Run the BFS algorithm and return the results.
+
+    :param start_node: The node to start the BFS traversal from
+
+    :return: List of nodes in BFS order
+    """
+    if start_node:
+        self.start_node = start_node
+    else:
+        self.start_node = list(self.graph.nodes)[0] if self.graph else None
+
+    if not self.is_valid():
+        return {}
+
+    self.__bfs()
+    return self.bfs_order</code></pre>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../bfs_community_graph/" class="btn btn-neutral float-left" title="BFS Community Graph"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../auto_test_vfs_community_graph/" class="btn btn-neutral float-right" title="DocString (Tests)">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../bfs_community_graph/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../auto_test_vfs_community_graph/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
