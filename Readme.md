@@ -14,6 +14,12 @@ Python-based application designed to analyze the spread of information within so
 - **Visualization**: Visualize social network connections and the spread of information using Matplotlib.
 - **Debug Mode**: Enable debug mode to print detailed information during the BFS traversal.
 
+## Documentation
+
+Documentation for this project is available at the following link:
+
+[TGiS-BFS Documentation](https://patrykgacek.github.io/TGiS-BFS/)
+
 ## Installation
 
 To install the required dependencies, it is recommended to use a virtual environment. Follow the steps below:
