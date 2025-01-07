@@ -1,10 +1,14 @@
-# Application of the BFS algorithm to analyze the spread of information in social networks
+# TGiS-BFS Documentation
 
-![Example result](./example_result.png)
+Welcome to the TGiS-BFS project documentation.
 
-## Description
+## Overview
+
+Application of the BFS algorithm to analyze the spread of information in social networks
 
 Python-based application designed to analyze the spread of information within social networks using the Breadth-First Search (BFS) algorithm. This tool allows users to visualize social network connections and the spread of information from a given starting node.
+
+![Example result](./img/example_result.png)
 
 ## Features
 
@@ -18,24 +22,25 @@ Python-based application designed to analyze the spread of information within so
 
 To install the required dependencies, it is recommended to use a virtual environment. Follow the steps below:
 
-1. Clone the repository:
+Clone the repository:
 
-   ```sh
-   git clone https://github.com/patrykgacek/TGiS-BFS.git
-   cd TGiS-BFS
-   ```
+```sh
+git clone https://github.com/patrykgacek/TGiS-BFS. git
+cd TGiS-BFS
+```
 
-2. Create and activate a virtual environment:
+Create and activate a virtual environment:
 
-   ```sh
-   python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-   ```
+```sh
+python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+```
 
-3. Install the dependencies:
-   ```sh
-   pip install -r requirements.txt
-   ```
+Install the dependencies:
+
+```sh
+pip install -r requirements.txt
+```
 
 ## Usage
 
@@ -101,20 +106,10 @@ graph.draw_compare() # draws the graph of all social connections provided by the
 graph.draw_spread() # draws the graph of the resulted information spread.
 ```
 
-Instead of using make_graph, you can use random_community to generate a sample network, where you can adjust the number of people and the probabilities of connections between them:
+Instead of using `make_graph`, you can use `random_community` to generate a sample network, where you can adjust the number of people and the probabilities of connections between them:
 
 ```python
 graph.random_community(5, 0.4)
 ```
 
 This will create a network with 5 individuals, where the probability of a connection between any two individuals is 40% (0.4).
-
-## Contributing
-
-This project is developed solely for educational purposes as part of university coursework. It will not be actively maintained or developed further
-
-## License
-
-This project is released into the public domain under the terms of the Unlicense. You can do whatever you want with this code, without any conditions.
-
-See the [LICENSE](./LICENSE) file for details.

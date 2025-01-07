@@ -1,0 +1,13 @@
+site_name: TGiS-BFS Documentation
+theme:
+  name: readthedocs
+
+nav:
+  - Home: index.md
+  - BFS Community Graph: bfs_community_graph.md
+  - DocString (BfsCommunityGraph): auto_bfs_community_graph.md
+  - DocString (Tests): auto_test_vfs_community_graph.md
+
+plugins:
+  - search
+  - mkdocstrings
