@@ -62,6 +62,8 @@ jobs:
         PYTHON_PYLINT_CONFIG_FILE: .python-lint
         BLACK_ARGS: "--line-length=100"
   deploy-docs:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
 
     steps:
